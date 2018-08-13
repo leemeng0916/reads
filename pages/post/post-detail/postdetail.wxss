@@ -1,0 +1,61 @@
+.container{
+  display: flex;
+  flex-direction: column;
+}
+.image1{
+  width: 100%;
+  height: 460rpx;
+}
+.container2{
+  flex-direction: row;
+  margin-top:10rpx; 
+
+}
+.image2{
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: 10rpx;
+  vertical-align: middle;
+}
+.text1{
+  vertical-align: middle;
+  margin-left:10rpx; 
+}
+.text2{
+  vertical-align: middle;
+  margin-left: 10rpx;
+}
+.text3{
+ font-size: 36rpx;
+  font-weight: 700;
+  margin-top: 30rpx;
+  margin-left:10rpx;
+  color: #666; 
+
+}
+.container3 image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.container3{
+  margin-left: 80%;
+}
+.container4{
+  width: 80%;
+  height: 2rpx;
+  background-color: #666;
+  position: relative;
+  /* relative是指相对于该标签本身位置做出的移动。 */
+  top: -40rpx;
+  /* top是指在该标签的上面插入空间，类似于别的坐标是相同的意思 */
+  z-index: -99;
+  /* z-index:为负的时候，代表在重叠图片之下。 */
+}
+.image5{
+  width: 102rpx;
+  height: 110rpx;
+  position: absolute;
+  left: 45%;
+  top: 180rpx;
+  opacity: 0.6;
+}

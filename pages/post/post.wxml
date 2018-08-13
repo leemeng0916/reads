@@ -14,9 +14,13 @@
         </swiper-item>
     </swiper>
     <block wx:for="{{post_con}}" wx:for-item="item" wx:for-index="idx">
+    <!-- <block>不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染 -->
+    <!-- 因为 wx:if 是一个控制属性，需要将它添加到一个标签上。如果要一次性判断多个组件标签，可以使用一个 <block/> 标签将多个组件包装起来，并在上边使用 wx:if 控制属性。 -->
         <!--//template-->
-        <view catchtap="onPostTap" data-postId="{{item.postId}}">
+        <!-- 在页面加载时，将postid拿到，用于给详情页回传 -->
+        <view catchtap="onpostview" data-postId="{{item.postId}}">
              <template is="postItem" data="{{...item}}"/>
+             <!-- 三个点的作用是将已经拿到的Item平铺开 -->
         </view>
 </block>
 </view>

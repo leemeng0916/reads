@@ -12,11 +12,15 @@ Page({
   //通过event来获取XML中VIEW的item.post_id
   //event当前事件，currentTarget表示当前VIEW
   //dataset.id 是一个集合，可以提取出data-id中的值，也可以提取出标签内该data开头其余字段的值。
-  //dataset.id 为固定写法。
-  var i=event.currentTarget.dataset.id;
-  //console.log('this is new text si '+ i)
+  //dataset.为固定写法,注意后面的postid必须为小写，写法为XML中data-后面的变量名。
+  // 1.XML加载的时候，就会将每个VIEW的ID值从数据中拿到，将其放在data-postid中。
+  // 2.当点击对应的VIEW时，按钮绑定的事件，将view的id值获取到。
+  // 3.事件通过跳转界面，将id传到下一个界面去。
+  // 4.下一个界面的Js文件接受id后，同时将数据层的数据获取到，从数组赋予Id，从而获取到对应的item
+    var i = event.currentTarget.dataset.postid;
+  // console.log('this is new text si '+ i)
   wx.navigateTo({
-    url: 'postview/postview?id='+i,//相对路径，同一个目录下的文件可以直接调取,跳转页面时，直接加问号和ID，会将值传入到postview的js文件中onload的Options.
+    url: 'post-detail/postdetail?id='+i,//相对路径，同一个目录下的文件可以直接调取,跳转页面时，直接加问号和ID，会将值传入到postview的js文件中onload的Options.
   })
 
   },
@@ -28,6 +32,12 @@ Page({
     //使用{key:value}这种方式给data 传值，到XML中可以读取出key
     //绑定数据是在onload之后发生的。
     this.setData({ post_con: post_require.postList})
+    //post_require.postList是一个数组
+    // 传入到data 中样式为：
+    // data: {
+    //   post_con: post_require.postList
+    // }
+
   },
     
  
