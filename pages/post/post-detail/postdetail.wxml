@@ -9,7 +9,9 @@
   </view>
   <text class='text3'>{{title}}</text>
   <view class='container3'>
-    <image catchtap='oncollectionTap' src='/images/icon/collection.png' class='image3'></image>
+  <!-- 注意if=''需要带括号 -->
+    <image wx:if='{{collected}}' catchtap='oncollectionTap' src='/images/icon/collection.png' ></image>
+    <image wx:else catchtap='oncollectionTap' src='/images/icon/collection-anti.png' ></image>
     <image catchtap='onshareTap'
     src='/images/icon/share.png' class='image4'></image>
   </view>
