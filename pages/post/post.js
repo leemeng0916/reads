@@ -24,6 +24,16 @@ Page({
   })
 
   },
+  onSwiperTap:function(event){
+    // target指的是点击的当前组件，currenttarget指的是事件捕捉的组件。
+    // 这里的target指的是image，currenttarget指的是swiper
+    var i = event.target.dataset.id;
+   wx.navigateTo({
+     url: 'post-detail/postdetail?id='+i
+     
+     
+   })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

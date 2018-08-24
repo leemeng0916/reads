@@ -1,0 +1,20 @@
+<view class='container1'>
+  <image src='{{headImgSrc}}' class='image1'></image>
+   <image src='/images/music/music-start.png' class='image5'></image>
+ 
+  <view class='container2'>
+    <image src='{{avatar}}' class='image2'></image>
+    <text class='text1'>{{author}}</text>
+    <text class='text2'>{{dateTime}}</text>
+  </view>
+  <text class='text3'>{{title}}</text>
+  <view class='container3'>
+  <!-- 注意if=''需要带括号 -->
+    <image wx:if='{{collected}}' catchtap='oncollectionTap' src='/images/icon/collection.png' ></image>
+    <image wx:else catchtap='oncollectionTap' src='/images/icon/collection-anti.png' ></image>
+    <image catchtap='onshareTap'
+    src='/images/icon/share.png' class='image4'></image>
+  </view>
+  <view  class='container4'></view>
+  <text>{{detail}}</text>
+</view>
