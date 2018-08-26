@@ -4,3 +4,4 @@
 <image src='/images/yourname.jpg'></image>
 <template is ='star-template'/>
 </view>
+</template>
