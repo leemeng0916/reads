@@ -1,0 +1,12 @@
+<template name='star-template'>
+<view>
+<image src='/images/icon/star.png'></image>
+<image src='/images/icon/star.png'></image>
+<image src='/images/icon/star.png'></image>
+<image src='/images/icon/star.png'></image>
+<image src='/images/icon/star.png'></image>
+</view>
+<view>
+<text>8.8</text>
+</view>
+</template>
