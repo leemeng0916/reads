@@ -4,7 +4,7 @@
     <swiper catchtap="onSwiperTap"  indicator-dots="true" autoplay="true" interval="5000">
     <!-- swiper-item取父级的宽和高，默认全部填充，图片需要手动修改大小后才能填充，负责可能会小于父容器的大小 -->
         <swiper-item>
-            <image  data-id='3' src="/images/wx.png" ></image>
+            <image bindtap="onSwiperItemTap" data-id='3' src="/images/wx.png" ></image>
         </swiper-item>
         <swiper-item>
             <image src="/images/vr.png" ></image>

@@ -1,3 +1,5 @@
+<import src="post-item-icon-view.wxml" />
+
 <template name="postItem">
     <view class="post-container">
        <view class="post-author-date">
@@ -8,14 +10,6 @@
             <image class="post-image" src="{{imgSrc}}"></image>
             <text class="post-content">{{content}}
             </text>
-            <view class="post-like">
-                    <image class="post-like-image" 
-                    src="/images/icon/chat.png"></image>
-                    <text class="post-like-font">{{collection}}</text>
-
-                    <image class="post-like-image" 
-               src="/images/icon/view.png"></image> 
-                    <text class="post-like-font">{{reading}}</text>
-            </view>
+            <template is ='post-like-icon' data='{{collection,reading}}' />
         </view>
 </template>

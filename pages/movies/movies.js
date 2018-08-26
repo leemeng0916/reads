@@ -3,13 +3,6 @@ Page({
   /**
    * 页面的初始数据
    */
-  onTap:function(){
-   wx.switchTab({
-     
-     url: '../post/post',
-     
-   })
-  },
   data: {
     
   },

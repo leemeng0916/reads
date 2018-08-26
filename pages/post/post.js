@@ -30,10 +30,13 @@ Page({
     var i = event.target.dataset.id;
    wx.navigateTo({
      url: 'post-detail/postdetail?id='+i
-     
-     
    })
   },
+  // bindtop是冒泡机制，image中的tap会自动传入到catchtap中
+  // onSwiperItemTap:function(event){
+  //   var i = event.currentTarget.dataset.id;    
+  
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
