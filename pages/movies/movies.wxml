@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <import src='movielist/movielist.wxml' />
 
 <view class='movies-container'>
@@ -10,4 +11,11 @@
   <view class='movies-t1'>
     <template is='movieListTemplate' />
   </view>
+=======
+<import src='movielist/movielist.wxml'/>
+<view>
+<template is ='movieListTemplate'/>
+<template is ='movieListTemplate'/>
+<template is ='movieListTemplate'/>
+>>>>>>> f94b32bb382bf7caf6b01f9f767c5465103b1321
 </view>

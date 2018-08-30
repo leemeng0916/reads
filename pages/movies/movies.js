@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 var app=getApp()
+=======
+>>>>>>> f94b32bb382bf7caf6b01f9f767c5465103b1321
 Page({
 
   /**
@@ -12,6 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+<<<<<<< HEAD
     var top250url = app.globalData.doubanBase + '/v2/movie/top250' +'?start=0&count=3';
     var incommingsoonurl = app.globalData.doubanBase + '/v2/movie/coming_soon' + '?start=0&count=3';
     var inthearterurl = app.globalData.doubanBase + '/v2/movie/in_theaters' + '?start=0&count=3';
@@ -60,6 +64,9 @@ Page({
     this.setData({
       movies: movies
     })
+=======
+    
+>>>>>>> f94b32bb382bf7caf6b01f9f767c5465103b1321
   },
 
   /**

@@ -1,4 +1,5 @@
 <template name='star-template'>
+<<<<<<< HEAD
 
   <view class='stars-container'>
     <view class='star-container'>
@@ -13,4 +14,16 @@
       <text class='stars-text'>8.8</text>
     </view>
   </view>
+=======
+<view>
+<image src='/images/icon/star.png'></image>
+<image src='/images/icon/star.png'></image>
+<image src='/images/icon/star.png'></image>
+<image src='/images/icon/star.png'></image>
+<image src='/images/icon/star.png'></image>
+</view>
+<view>
+<text>8.8</text>
+</view>
+>>>>>>> f94b32bb382bf7caf6b01f9f767c5465103b1321
 </template>

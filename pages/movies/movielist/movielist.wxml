@@ -1,14 +1,22 @@
 <import src='../movie/movie.wxml'/>
   <template name='movieListTemplate'>
+<<<<<<< HEAD
   
     <view class='movielists-container'>
       <view class='movielist-container'>
         <text>前100排名</text>
         <view class='movielist-text-container'>
+=======
+    <view>
+      <view>
+        <text></text>
+        <view>
+>>>>>>> f94b32bb382bf7caf6b01f9f767c5465103b1321
           <text>更多</text>
           <image src='/images/icon/arrow-right.png'></image>
         </view>
       </view>
+<<<<<<< HEAD
       <view  class='movielist-image-container'>
        <block wx:for='{{movies}}' wx:for-item='movie'>
        <template is='movie-template' data='{{...movie}}'/>
@@ -19,4 +27,10 @@
       </view>
     </view>
     
+=======
+      <template is='movie-template' />
+      <template is='movie-template' />
+      <template is='movie-template' />
+    </view>
+>>>>>>> f94b32bb382bf7caf6b01f9f767c5465103b1321
   </template>
