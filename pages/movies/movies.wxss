@@ -1,0 +1,12 @@
+@import "stars/stars-template.wxss";
+@import "movie/movie.wxss";
+@import "movielist/movielist.wxss";
+
+.movies-container {
+  display: flex;
+  flex-direction: column;
+  
+}
+.movies-t1{
+  margin-bottom: 15rpx;
+}

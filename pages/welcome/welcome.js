@@ -4,7 +4,8 @@ Page({
    * 页面的初始数据
    */
   onTap:function(){
-   wx.navigateTo({
+   wx.switchTab({
+    //  要跳转到tabbar的页面，就必须使用wx.switchtab
      url: '../post/post',
      
    })

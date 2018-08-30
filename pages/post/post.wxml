@@ -4,7 +4,7 @@
     <swiper catchtap="onSwiperTap"  indicator-dots="true" autoplay="true" interval="5000">
     <!-- swiper-item取父级的宽和高，默认全部填充，图片需要手动修改大小后才能填充，负责可能会小于父容器的大小 -->
         <swiper-item>
-            <image  data-id='3' src="/images/wx.png" ></image>
+            <image bindtap="onSwiperItemTap" data-id='3' src="/images/wx.png" ></image>
         </swiper-item>
         <swiper-item>
             <image src="/images/vr.png" ></image>
@@ -14,6 +14,7 @@
         </swiper-item>
     </swiper>
     <block wx:for="{{post_con}}" wx:for-item="item" wx:for-index="idx">
+    
     <!-- <block>不是一个组件，它仅仅是一个包装元素，只接受控制属性，不会在页面中做任何渲染 -->
     <!-- 因为 wx:if 是一个控制属性，需要将它添加到一个标签上。如果要一次性判断多个组件标签，可以使用一个 <block/> 标签将多个组件包装起来，并在上边使用 wx:if 控制属性。 -->
         <!--//template-->
