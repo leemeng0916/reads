@@ -1,13 +1,11 @@
 {
   "pages": [
+    
     "pages/movies/movies",
     "pages/welcome/welcome",
     "pages/post/post",  
-<<<<<<< HEAD
    
-=======
-    "pages/movies/movies",
->>>>>>> f94b32bb382bf7caf6b01f9f767c5465103b1321
+
     "pages/post/post-detail/postdetail"
    
      

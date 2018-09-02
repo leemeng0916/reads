@@ -1,0 +1,35 @@
+.movielist-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+.inner-container{
+  margin: 0  auto 20rpx;
+}
+/* 将盒子空间压缩 */
+.movielist-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30rpx 20rpx 22rpx;
+}
+
+.movielist-text1 {
+  font-size: 26rpx;
+}
+.more{
+
+}
+.movielist-text2 {
+  font-size: 26rpx;
+}
+
+.movielist-image {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.movielist-movies {
+  display: flex;
+  flex-direction: row;
+}

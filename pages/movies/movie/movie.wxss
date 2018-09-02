@@ -1,12 +1,13 @@
+@import "../stars/stars-template.wxss";
 
-.movie-container{
+.movie-container {
   display: flex;
   flex-direction: column;
   padding: 0 10rpx;
 }
 
-image {
-  width: 200rpx;
-  height: 270rpx;
-  padding-bottom: 20rpx;
+.movie-image{
+  /* width: 50rpx;
+  height: 50rpx;
+  padding-bottom: 20rpx; */
 }

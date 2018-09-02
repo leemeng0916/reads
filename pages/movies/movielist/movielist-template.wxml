@@ -1,0 +1,24 @@
+<import src='../movie/movie-template.wxml' />
+<template name='movielistTemplate'>
+  <view class='movielist-container'>
+    <view class='inner-container'>
+      <view class='movielist-text'>
+        <text class='movielist-text1'>最近热映</text>
+        <view class='more'>
+          <text class='movielist-text2'>更多</text>
+          <image class='movielist-image' src='/images/icon/arrow-right.png'></image>
+        </view>
+      </view>
+      
+        <view class='movielist-movies'>
+        <block wx:for='{{movies}}' wx:for-item='movie'>
+          <template is='movieTemplate' data='{{...movie}}' />
+          <!-- <template is='movieTemplate' />
+        <template is='movieTemplate' /> -->
+         </block>
+        </view>
+     
+
+    </view>
+  </view>
+</template>

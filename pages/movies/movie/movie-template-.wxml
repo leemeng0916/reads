@@ -1,0 +1,11 @@
+<import src='/stars/stars-template.wxml'/>
+<template name='movietemplate'>
+  <view class='movie-container'>
+     <image src='{{image}}'></image>
+    <text>{{title}}</text>     
+      <!-- <image class='movie-image' src='/images/yourname.jpg'></image> -->
+      <template is='star-template' />
+    
+  </view>
+
+</template>
