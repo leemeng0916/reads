@@ -1,30 +1,33 @@
-var app=getApp()
+var app = getApp()
+var util = require('../../utils/utils.js')
 
- 
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    // 'inthearter': {},
+    // 'top250': {},
+    // 'commingsoon': {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    var top250url = app.globalData.doubanBase + '/v2/movie/top250' +'?start=0&count=3';
+  onLoad: function(options) {
+    var top250url = app.globalData.doubanBase + '/v2/movie/top250' + '?start=0&count=3';
     var incommingsoonurl = app.globalData.doubanBase + '/v2/movie/coming_soon' + '?start=0&count=3';
     var inthearterurl = app.globalData.doubanBase + '/v2/movie/in_theaters' + '?start=0&count=3';
 
-    // this.getrequestlist(top250url);
-    // this.getrequestlist(incommingsoonurl);
-    this.getrequestlist(inthearterurl);
+    this.getrequestlist(inthearterurl, 'inthearter');
+
+    this.getrequestlist(top250url, 'top250');
+    this.getrequestlist(incommingsoonurl, 'commingsoon');
 
   },
-  getrequestlist:function(url){
-    var that=this;
+  getrequestlist: function(url, setkey) {
+    var that = this;
     wx.request({
       // 豆瓣API需要使用http://t.yushu.im代替之前的https://api.douban.com
       url: url,
@@ -34,10 +37,10 @@ Page({
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
-      success: function (res) {
+      success: function(res) {
         // console.log(res.data);
-         that.processDouBanData(res.data)
-        
+        that.processDouBanData(res.data, setkey)
+
       },
       //  failed: function (res) {
       //   console.log(res.data);
@@ -47,76 +50,83 @@ Page({
     })
 
   },
-  processDouBanData:function(moviedouban){
-    var movies=[];
-    for (var idx in moviedouban.subjects){
+  processDouBanData: function(moviedouban, setkey) {
+    var movies = [];
+    for (var idx in moviedouban.subjects) {
       var subject = moviedouban.subjects[idx];
-      var title=subject.title;
-      if (title.length>6){
-         title=title.substring(0,6)+'...'
+      var title = subject.title;
+      if (title.length > 6) {
+        title = title.substring(0, 6) + '...'
       }
-      var image=subject.images.large;
-      var rating=subject.rating.average;
-      var temp={
-         image:image,
-         title:title,
-         average:rating
+      var image = subject.images.large;
+      var rating = subject.rating.average;
+       var stars = util.convertstar1(subject.rating.stars);
+      // console.log(subject.rating.stars);
+      var temp = {
+        image: image,
+        title: title,
+        average: rating,
+        stars: stars,
       };
+
       movies.push(temp);
     }
-    this.setData({
+    // 添加JS对象是为了让setkey与movies一一对应上，{ movies: movies}是为了方便模板movieslist直接调用。
+    var readysetkey = {};
+    readysetkey[setkey] = {
       movies: movies
-    })
+    };
+    this.setData(readysetkey);
 
- 
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-    
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    
+  onShow: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-    
+  onHide: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-    
+  onUnload: function() {
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-    
+  onPullDownRefresh: function() {
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-    
+  onReachBottom: function() {
+
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-    
+  onShareAppMessage: function() {
+
   }
 })

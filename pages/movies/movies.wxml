@@ -2,12 +2,12 @@
 
 <view class='movies-container'>
   <view class='movies-t1'>
-    <template is='movielistTemplate' data='{{movies}}' />
-  </view>
-  <!-- <view class='movies-t1'>
-    <template is='movieListTemplate' />
+    <template is='movielistTemplate' data='{{...inthearter}}' />
   </view>
   <view class='movies-t1'>
-    <template is='movieListTemplate' />
-  </view> -->
+    <template is='movielistTemplate' data='{{...top250}}' />
+  </view>
+  <view class='movies-t1'>
+    <template is='movielistTemplate'  data='{{...commingsoon}}'/>
+  </view>
 </view>
