@@ -4,9 +4,8 @@
     "pages/movies/movies",
     "pages/welcome/welcome",
     "pages/post/post",  
-   
-
-    "pages/post/post-detail/postdetail"
+    "pages/post/post-detail/postdetail",
+    "pages/movies/more-movies/more-movies"
    
      
       

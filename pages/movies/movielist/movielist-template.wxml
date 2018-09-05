@@ -4,7 +4,7 @@
     <view class='inner-container'>
       <view class='movielist-text'>
         <text class='movielist-text1'>{{setkey}}</text>
-        <view class='more'>
+        <view catchtap='onmoretap' class='more'>
           <text class='movielist-text2'>更多</text>
           <image class='movielist-image' src='/images/icon/arrow-right.png'></image>
         </view>
