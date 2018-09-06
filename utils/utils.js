@@ -12,6 +12,25 @@ function convertstar(stars) {
   }
   return star;
 }
+function getrequestlist(url,callback) {
+  
+  wx.request({
+    // 豆瓣API需要使用http://t.yushu.im代替之前的https://api.douban.com
+    url: url,
+    header: {
+      'content-type': ''
+    },
+    method: 'GET',
+    dataType: 'json',
+    responseType: 'text',
+    success: function (res) {
+     callback(res.data);
+    },
+
+  })
+
+}
 module.exports = {
-  convertstar1: convertstar
+  convertstar1: convertstar,
+  getrequestlist: getrequestlist
 }

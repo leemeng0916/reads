@@ -27,9 +27,10 @@ Page({
 
   },
 
-  onmoretap: function() {
+  onmoretap: function(event) {
+    var contap1=event.currentTarget.dataset.contap;
     wx.navigateTo({
-      url: 'more-movies/more-movies'
+      url: 'more-movies/more-movies?contap='+ contap1,
 
     })
   },
