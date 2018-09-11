@@ -8,7 +8,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    dataUrl:'',
+    nextnum:0,
+    movies:[],
+    isEmtpy:false,
   },
 
   /**
@@ -16,7 +19,7 @@ Page({
    */
   onLoad: function(options) {
     var id = options.contap;
-    // console.log(id);
+     console.log(id);
     this.setData({
       navititle: id
     });
@@ -30,9 +33,11 @@ Page({
         dataUrl = app.globalData.doubanBase + '/v2/movie/coming_soon';
     }
     util.getrequestlist(dataUrl, this.processDouBanData);
+    this.data.dataUrl=dataUrl;
   },
   processDouBanData: function(moviedouban) {
     var movies = [];
+    var totalmovies={};
     for (var idx in moviedouban.subjects) {
       var subject = moviedouban.subjects[idx];
       var title = subject.title;
@@ -52,11 +57,23 @@ Page({
 
       movies.push(temp);
     }
- 
-    this.setData({ movies: movies});
+    if(!this.data.isEmtpy){
+      totalmovies=this.data.movies.concat(movies);
+
+    }
+    else{
+      totalmovies=movies;
+      this.data.isEmtpy=true;
+    }
+    this.data.nextnum+=20;
+    this.setData({ movies: totalmovies});
 
   },
+  onscrolltolower:function(event){
+    var nextUrl=this.data.dataUrl+'?start='+this.data.nextnum+'&count=20';
+    util.getrequestlist(nextUrl, this.processDouBanData);
 
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
