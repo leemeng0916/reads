@@ -10,6 +10,9 @@ Page({
     // 'inthearter': {},
     // 'top250': {},
     // 'commingsoon': {}
+    containmovies:true,
+    containseacher:false
+  
   },
 
   /**
@@ -52,6 +55,18 @@ Page({
 
     })
 
+  },
+  imagecatch:function(){
+    this.setData({
+      containmovies: true,
+      containseacher: false
+      })
+  },
+  onBindForce:function(){
+    this.setData({
+      containmovies: false,
+      containseacher: true
+      })
   },
   processDouBanData: function(moviedouban, setkey, setkey1) {
     var movies = [];

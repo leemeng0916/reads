@@ -2,4 +2,5 @@
 .moremovie-container{
 	float: left;
 	margin-bottom: 20rpx;
+  
 }

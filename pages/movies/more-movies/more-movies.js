@@ -8,10 +8,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataUrl:'',
-    nextnum:0,
-    movies:[],
-    isEmtpy:false,
+    dataUrl: '',
+    nextnum: 0,
+    movies: [],
+    isEmtpy: false,
   },
 
   /**
@@ -19,7 +19,7 @@ Page({
    */
   onLoad: function(options) {
     var id = options.contap;
-     console.log(id);
+    console.log(id);
     this.setData({
       navititle: id
     });
@@ -33,11 +33,12 @@ Page({
         dataUrl = app.globalData.doubanBase + '/v2/movie/coming_soon';
     }
     util.getrequestlist(dataUrl, this.processDouBanData);
-    this.data.dataUrl=dataUrl;
+    this.data.dataUrl = dataUrl;
+   console.log('11111');
   },
   processDouBanData: function(moviedouban) {
     var movies = [];
-    var totalmovies={};
+    var totalmovies = [];
     for (var idx in moviedouban.subjects) {
       var subject = moviedouban.subjects[idx];
       var title = subject.title;
@@ -57,22 +58,37 @@ Page({
 
       movies.push(temp);
     }
-    if(!this.data.isEmtpy){
-      totalmovies=this.data.movies.concat(movies);
+    // this.data.movies表示之前加载的movies，movies表示当前的，思路：怎样让之前的和当前的都显示出来？
+    // 通过一个布尔变量，此变量默认为false，用if进行判断，当第一次判断的时候，将movies传给totalmovies，并把布尔变量变成真，第二次将变量通过concat进行拼接。
+    if (!this.data.isEmtpy) {
+      totalmovies = this.data.movies.concat(movies);
 
+    } else {
+      totalmovies = movies;
+      this.data.isEmtpy = true;
     }
-    else{
-      totalmovies=movies;
-      this.data.isEmtpy=true;
-    }
-    this.data.nextnum+=20;
-    this.setData({ movies: totalmovies});
-
+    this.data.nextnum += 20;
+    this.setData({
+      movies: totalmovies
+    });
+    wx.hideNavigationBarLoading();
+    wx.stopPullDownRefresh();
   },
-  onscrolltolower:function(event){
-    var nextUrl=this.data.dataUrl+'?start='+this.data.nextnum+'&count=20';
+  onReachBottom: function() {
+    wx.showLoading({
+      title: '正在加载',
+    })
+    var nextUrl = this.data.dataUrl + '?start=' + this.data.nextnum + '&count=20';
     util.getrequestlist(nextUrl, this.processDouBanData);
-
+    wx.showNavigationBarLoading();
+  },
+  // 上划和下拉不能同时用scroll-view
+  onPullDownRefresh:function(event){
+    var freshUrl=this.data.dataUrl+'?start=0&count=20';
+    this.data.movies={};
+    this.data.isEmtpy=false;
+    util.getrequestlist(freshUrl, this.processDouBanData);
+    wx.showNavigationBarLoading();
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,6 +1,11 @@
 <import src='movielist/movielist-template.wxml' />
-
-<view class='movies-container'>
+<import src='movie-grid/movie-grid.wxml' />
+<view class='search'>
+  <icon type='search' class='onbind-img' size='16' color='#405f80'></icon>
+  <input type='text' placeholder='hahahah' placeholder-class='placeholder' bindfocus='onBindForce' />
+  <image src='/images/icon/xx.png' wx:if='{{containseacher}}' catchtap='imagecatch' ></image>
+</view>
+<view class='movies-container' wx:if="{{containmovies}}">
   <view class='movies-t1'>
     <template is='movielistTemplate' data='{{...inthearter}}' />
   </view>
@@ -8,6 +13,9 @@
     <template is='movielistTemplate' data='{{...top250}}' />
   </view>
   <view class='movies-t1'>
-    <template is='movielistTemplate'  data='{{...commingsoon}}'/>
+    <template is='movielistTemplate' data='{{...commingsoon}}' />
   </view>
+</view>
+<view class='search-temp' wx:if='{{containseacher}}'>
+<template is ='movieGridTemplate'/>
 </view>
