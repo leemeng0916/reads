@@ -2,7 +2,7 @@
 <import src='movie-grid/movie-grid.wxml' />
 <view class='search'>
   <icon type='search' class='onbind-img' size='16' color='#405f80'></icon>
-  <input type='text' placeholder='hahahah' placeholder-class='placeholder' bindfocus='onBindForce' />
+  <input type='text' placeholder='hahahah' placeholder-class='placeholder' bindfocus='onBindForce' bindconfirm='onBindConfirm'/>
   <image src='/images/icon/xx.png' wx:if='{{containseacher}}' catchtap='imagecatch' ></image>
 </view>
 <view class='movies-container' wx:if="{{containmovies}}">
@@ -17,5 +17,5 @@
   </view>
 </view>
 <view class='search-temp' wx:if='{{containseacher}}'>
-<template is ='movieGridTemplate'/>
+<template is ='movieGridTemplate' data='{{...searching}}'/>
 </view>

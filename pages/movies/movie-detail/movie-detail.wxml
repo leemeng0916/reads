@@ -1,0 +1,45 @@
+<view class='container'>
+
+<image class='movieimage' src='{{movie.image}}' mode='aspectFill'  
+></image>
+<view class='head-cover-img'>
+<view class='text1'>
+<text class='text-cover'>{{movie.originaltitle}}</text>
+</view>
+<!-- <view> -->
+<text>{{movie.countries}}</text>
+<!-- </view> -->
+<text>{{movie.year}}</text>
+<text>{{movie.wishCount}}</text>
+<text>{{movie.commentscount}}</text>
+</view>
+<view>
+<image src='{{movie.image}}'></image>
+<text>{{movies.title}}</text>
+<text>评分</text>
+<text>{{movies.average}}</text>
+<template is ='star-template'   data='{{...movies.rating}}'/>
+<text>导演</text>
+<text>{{movies.director.name}}</text>
+<text>影人</text>
+<text>{{movies.cast}}</text>
+<text>类型</text>
+<text>{{movies.genres}}</text>
+<view></view>
+<text>剧情介绍</text>
+<text>{{movies.summary}}</text>
+<text>影人</text>
+<scroll-view scroll-x='true' style='width:100%'>
+<view>
+<block wx:for='{{movies.castinfo}}' for-item='item'>
+<!-- <image src='{{movie.image}}'></image> -->
+<!-- <text>{{movie.}}</text> -->
+<image src='item.castname'></image>
+<text src='item.imageinfo'></text>
+</block>
+</view>
+
+
+</scroll-view>
+</view>
+</view>

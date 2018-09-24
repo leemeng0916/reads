@@ -30,7 +30,27 @@ function getrequestlist(url,callback) {
   })
 
 }
+function CasttoString(casts){
+  var castjoin='';
+  for  (var idx in casts) {
+    castjoin = castjoin + casts[idx].name+'/';
+  };
+  return castjoin.substring(0, castjoin.length-2) ;
+}
+function CastInfotoString(casts){
+var castlist=[];
+for ( var idx in casts){
+ var cast={
+   imageinfo: casts[idx].avatars?casts[idx].avatars.large:'',
+    castname:casts[idx].name
+ }
+ castlist.push(cast);
+}
+  return castlist;
+}
 module.exports = {
   convertstar1: convertstar,
-  getrequestlist: getrequestlist
+  getrequestlist: getrequestlist,
+  CasttoString: CasttoString,
+  CastInfotoString: CastInfotoString
 }

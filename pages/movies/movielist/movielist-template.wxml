@@ -11,7 +11,7 @@
       </view>
 
       <view class='movielist-movies'>
-        <block wx:for='{{movies}}' wx:for-item='movie'>
+        <block wx:for='{{movies}}' wx:for-item='movie'   >
           <template is='movieTemplate' data='{{...movie}}' />
           <!-- <template is='movieTemplate' />
         <template is='movieTemplate' /> -->

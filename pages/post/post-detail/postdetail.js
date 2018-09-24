@@ -91,6 +91,17 @@
 
 
      });
+     wx.onBackgroundAudioStop(function () {
+       that.setData({
+         isplayingmusic: false
+       });
+       app.globalData.g_currentMusicPostId = null;
+       app.globalData.g_isPlayingMusic = false;
+       // app.globalData.g_currentMusicPostId = null;
+       // app.globalData.g_isPlayingMusic=false;
+
+
+     });
    },
    musicTap: function(event) {
      //  var post_id = this.data.currentdata;

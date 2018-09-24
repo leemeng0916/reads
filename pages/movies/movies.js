@@ -56,6 +56,12 @@ Page({
     })
 
   },
+  onBindConfirm:function(event){
+    var text=event.detail.value;
+    // console.log(text);
+    var searcherUrl = app.globalData.doubanBase+'/v2/movie/search?q='+text;
+    this.getrequestlist(searcherUrl,'searching','');
+  },
   imagecatch:function(){
     this.setData({
       containmovies: true,
@@ -85,6 +91,7 @@ Page({
         title: title,
         average: rating,
         stars: stars,
+        id:subject.id,
       };
 
       movies.push(temp);
@@ -101,6 +108,13 @@ Page({
     this.setData(readysetkey);
 
 
+  },
+  onCatchMovieTap:function(event){
+     var movieid=event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: 'movie-detail/movie-detail?id=' + movieid
+
+    })
   },
 
   /**
